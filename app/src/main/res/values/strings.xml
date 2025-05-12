@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Caretimes</string>
+    <string name="title_main_menu" />
+    <string name="title_appointments_list" />
+    <string name="title_new_appointment" />
+</resources>

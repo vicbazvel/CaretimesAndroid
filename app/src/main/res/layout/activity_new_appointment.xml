@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etDoctorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del médico"/>
+
+        <EditText
+            android:id="@+id/etSpecialty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Especialidad"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fecha (dd/mm/aaaa)"
+            android:inputType="date"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hora"
+            android:inputType="time"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notas adicionales"
+            android:layout_marginTop="8dp"
+            android:inputType="textMultiLine"
+            android:minLines="3"/>
+
+        <Button
+            android:id="@+id/btnSaveAppointment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar cita"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>
