@@ -45,6 +45,6 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validateLogin(String username, String password) {
         // Aquí deberías validar contra una base de datos real
         // Esto es solo un ejemplo básico
-        return username.equals("usuario") && password.equals("contraseña");
+        return username.equals("usuario") && password.equals("contrasena");
     }
 }
