@@ -8,13 +8,25 @@
     android:fitsSystemWindows="true"
     android:gravity="center">
 
+    <!-- Nombre completo (solo en registro) -->
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre completo"
+        android:inputType="textPersonName"
+        android:visibility="gone"/>
+
+    <!-- Usuario -->
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:layout_marginTop="8dp"/>
 
+    <!-- Contraseña -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
@@ -23,10 +35,18 @@
         android:inputType="textPassword"
         android:layout_marginTop="8dp"/>
 
+    <!-- Botones -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Iniciar sesión"
         android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>

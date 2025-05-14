@@ -31,8 +31,6 @@ public class AppointmentsListActivity extends AppCompatActivity {
         // Si fuera la primera vez, podrías precargar datos de ejemplo
         if (appointmentsList.isEmpty()) {
             // TODO: reemplazar por llamada REST para obtener citas reales
-            appointmentsList.add(new MedicalAppointment("Dr. Pérez", "Cardiología", "15/06/2023", "10:00 AM"));
-            appointmentsList.add(new MedicalAppointment("Dra. Gómez", "Dermatología", "20/06/2023", "04:30 PM"));
         }
 
         adapter = new ArrayAdapter<>(this,
