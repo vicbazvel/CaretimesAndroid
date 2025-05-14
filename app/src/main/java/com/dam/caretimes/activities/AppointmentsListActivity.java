@@ -1,11 +1,8 @@
 package com.dam.caretimes.activities;
 
+import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +15,11 @@ import java.util.List;
 public class AppointmentsListActivity extends AppCompatActivity {
 
     private ListView lvAppointments;
-    private List<MedicalAppointment> appointmentsList;
+    // Lista compartida que irá llenándose desde NewAppointmentActivity
+    // TODO: en el futuro cargar aquí las citas desde el servidor REST
+    public static List<MedicalAppointment> appointmentsList = new ArrayList<>();
+
+    private ArrayAdapter<MedicalAppointment> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +28,30 @@ public class AppointmentsListActivity extends AppCompatActivity {
 
         lvAppointments = findViewById(R.id.lvAppointments);
 
-        // Datos de ejemplo
-        appointmentsList = new ArrayList<>();
-        appointmentsList.add(new MedicalAppointment("Dr. Pérez", "Cardiología", "15/06/2023", "10:00 AM"));
-        appointmentsList.add(new MedicalAppointment("Dra. Gómez", "Dermatología", "20/06/2023", "04:30 PM"));
+        // Si fuera la primera vez, podrías precargar datos de ejemplo
+        if (appointmentsList.isEmpty()) {
+            // TODO: reemplazar por llamada REST para obtener citas reales
+            appointmentsList.add(new MedicalAppointment("Dr. Pérez", "Cardiología", "15/06/2023", "10:00 AM"));
+            appointmentsList.add(new MedicalAppointment("Dra. Gómez", "Dermatología", "20/06/2023", "04:30 PM"));
+        }
 
-        ArrayAdapter<MedicalAppointment> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, appointmentsList);
+        adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                appointmentsList);
         lvAppointments.setAdapter(adapter);
 
         lvAppointments.setOnItemClickListener((parent, view, position, id) -> {
-            MedicalAppointment selectedAppointment = appointmentsList.get(position);
-            Toast.makeText(this, "Cita seleccionada: " + selectedAppointment.getDoctorName(), Toast.LENGTH_SHORT).show();
+            MedicalAppointment selected = appointmentsList.get(position);
+            Toast.makeText(this,
+                    "Cita seleccionada: " + selected.getSpecialty() + " (" + selected.getDate() + " " + selected.getTime() + ")",
+                    Toast.LENGTH_SHORT).show();
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Si NewAppointmentActivity añadió citas a appointmentsList, actualizamos la vista
+        adapter.notifyDataSetChanged();
     }
 }

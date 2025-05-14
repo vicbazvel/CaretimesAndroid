@@ -30,21 +30,27 @@
         <!-- Menú Principal -->
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/title_main_menu"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/app_name" />
 
         <!-- Lista de Citas -->
         <activity
             android:name=".activities.AppointmentsListActivity"
-            android:label="@string/title_appointments_list"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/app_name" />
 
         <!-- Nueva Cita -->
         <activity
             android:name=".activities.NewAppointmentActivity"
-            android:label="@string/title_new_appointment"
             android:exported="false"
+            android:label="@string/app_name"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Cancelar Cita -->
+        <activity
+            android:name=".activities.CancelAppointmentActivity"
+            android:exported="false"
+            android:label="@string/app_name" />
 
         <!-- Otras configuraciones que podrías necesitar -->
         <meta-data
